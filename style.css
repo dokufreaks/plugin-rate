@@ -1,3 +1,4 @@
 div.rating {
+	white-space: nowrap;
 	display: inline;
 }
