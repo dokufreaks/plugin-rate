@@ -1,6 +1,6 @@
 <?php
 /**
- * Rate Syntax Plugin
+ * Rate Plugin
  * 
  * Provides a syntax for displaying "n out of m" ratings.
  *
@@ -26,10 +26,10 @@ class syntax_plugin_rate extends DokuWiki_Syntax_Plugin {
         return array(
             'author' => 'Gina Haeussge',
             'email'  => 'osd@foosel.net',
-            'date'   => '2008-06-15',
-            'name'   => 'Rate Syntax Plugin',
+            'date'   => '2008-12-05',
+            'name'   => 'Rate Plugin',
             'desc'   => 'Provides a syntax for displaying "n out of m" ratings.',
-            'url'    => 'http://wiki.foosel.net/snippets/dokuwiki/rate',
+            'url'    => 'http://foosel.org/snippets/dokuwiki/rate',
         );
     }
 
@@ -58,12 +58,12 @@ class syntax_plugin_rate extends DokuWiki_Syntax_Plugin {
             if ($numerator > $denominator)
             	return false;
             
-            $renderer->doc .= '<div class="rating">';
+            $renderer->doc .= '<span class="rating">';
             for ($i = 0; $i < $numerator; $i++)
-            	$renderer->doc .= '<img src="'.DOKU_URL.'lib/plugins/rate/img/star_filled.png" width="16" height="16" />';
+            	$renderer->doc .= '<img src="'.DOKU_URL.'lib/plugins/rate/img/star_filled.png" width="16" height="16" alt="filled star" />';
             for ($i = $numerator; $i < $denominator; $i++) 
-            	$renderer->doc .= '<img src="'.DOKU_URL.'lib/plugins/rate/img/star_empty.png" width="16" height="16" />';
-            $renderer->doc .= '</div>';
+            	$renderer->doc .= '<img src="'.DOKU_URL.'lib/plugins/rate/img/star_empty.png" width="16" height="16" alt="empty star" />';
+            $renderer->doc .= '</span>';
             return true;
         }
         return false;
